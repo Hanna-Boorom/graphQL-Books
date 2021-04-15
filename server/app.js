@@ -5,8 +5,16 @@ const express = require("express");
 // naming this const graphqlHTTP is just a convention, not naming it the same as the package
 const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
+const mongoose = require("mongoose");
 
 const app = express();
+
+mongoose.connect(
+  "mongodb+srv://hanna:test123@cluster0.ftq0e.mongodb.net/graphQL-books?retryWrites=true&w=majority"
+);
+mongoose.connection.once("open", () => {
+  console.log("connected to database");
+});
 
 app.use(
   "/graphql",
