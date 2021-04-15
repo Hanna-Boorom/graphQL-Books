@@ -1,7 +1,9 @@
+// from Net Ninja's GraphQL course on Youtube
+
 const express = require("express");
 
 // naming this const graphqlHTTP is just a convention, not naming it the same as the package
-const graphqlHTTP = require("express-graphql");
+const { graphqlHTTP } = require("express-graphql");
 const schema = require("./schema/schema");
 
 const app = express();
@@ -11,6 +13,10 @@ app.use(
   graphqlHTTP({
     // same as writing schema: schema, just using ES6
     schema,
+
+    // allows us to use the graphiql tool in localhost:3000 - or whatever port you're running on.
+    // graphiql is kinda like Postman for testing endpoints
+    graphiql: true,
   })
 );
 
