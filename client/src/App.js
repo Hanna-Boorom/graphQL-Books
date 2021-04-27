@@ -1,7 +1,10 @@
+import BookList from "./components/BookList";
+
 function App() {
   return (
     <div className="App">
       <h1>Hanna's Reading List</h1>
+      <BookList />
     </div>
   );
 }
